@@ -10,17 +10,21 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var defaultTipPercentage: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
     /*
     // MARK: - Navigation
 
@@ -30,5 +34,9 @@ class SettingsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func setDefault(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        defaults.set(defaultTipPercentage.selectedSegmentIndex, forKey: "selectedPercent")
+    }
 
 }
